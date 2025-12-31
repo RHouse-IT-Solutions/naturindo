@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Naturindo Brand Colors - Forest Green & Gold */
+    --background: 60 30% 98%;
+    --foreground: 150 25% 15%;
+
+    --card: 60 20% 99%;
+    --card-foreground: 150 25% 15%;
+
+    --popover: 60 20% 99%;
+    --popover-foreground: 150 25% 15%;
+
+    /* Primary: Deep Forest Green */
+    --primary: 145 55% 25%;
+    --primary-foreground: 60 30% 98%;
+
+    /* Secondary: Warm Cream */
+    --secondary: 45 40% 95%;
+    --secondary-foreground: 150 25% 15%;
+
+    /* Muted: Sage Green */
+    --muted: 140 20% 92%;
+    --muted-foreground: 150 15% 45%;
+
+    /* Accent: Gold/Bronze */
+    --accent: 45 75% 50%;
+    --accent-foreground: 150 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 30% 98%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 145 55% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom Brand Tokens */
+    --nature-green-50: 140 40% 96%;
+    --nature-green-100: 140 35% 90%;
+    --nature-green-200: 142 30% 80%;
+    --nature-green-300: 143 28% 65%;
+    --nature-green-400: 144 32% 45%;
+    --nature-green-500: 145 45% 30%;
+    --nature-green-600: 145 55% 25%;
+    --nature-green-700: 146 58% 20%;
+    --nature-green-800: 147 60% 15%;
+    --nature-green-900: 148 65% 10%;
+
+    --gold-50: 45 80% 97%;
+    --gold-100: 45 75% 90%;
+    --gold-200: 45 70% 78%;
+    --gold-300: 45 68% 65%;
+    --gold-400: 45 72% 55%;
+    --gold-500: 45 75% 50%;
+    --gold-600: 42 78% 45%;
+    --gold-700: 38 80% 38%;
+
+    --earth-brown: 30 35% 30%;
+    --cream: 45 50% 96%;
+    --leaf-light: 95 45% 88%;
+
+    /* Gradients */
+    --gradient-nature: linear-gradient(135deg, hsl(var(--nature-green-600)) 0%, hsl(var(--nature-green-700)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-400)) 0%, hsl(var(--gold-600)) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--nature-green-50)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--nature-green-50)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--nature-green-900) / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(var(--nature-green-900) / 0.12);
+    --shadow-elevated: 0 20px 40px -12px hsl(var(--nature-green-900) / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 148 30% 8%;
+    --foreground: 60 30% 95%;
+
+    --card: 148 25% 12%;
+    --card-foreground: 60 30% 95%;
+
+    --popover: 148 25% 12%;
+    --popover-foreground: 60 30% 95%;
+
+    --primary: 145 50% 45%;
+    --primary-foreground: 148 30% 8%;
+
+    --secondary: 145 20% 18%;
+    --secondary-foreground: 60 30% 95%;
+
+    --muted: 145 15% 20%;
+    --muted-foreground: 140 15% 60%;
+
+    --accent: 45 70% 55%;
+    --accent-foreground: 148 30% 8%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 60 30% 95%;
+
+    --border: 145 15% 20%;
+    --input: 145 15% 20%;
+    --ring: 145 50% 45%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .text-gradient-nature {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-nature);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .bg-gradient-nature {
+    background-image: var(--gradient-nature);
+  }
+
+  .bg-gradient-gold {
+    background-image: var(--gradient-gold);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Leaf pattern background */
+  .pattern-leaves {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 8-2 15 3 20s12 8 20 3c-5 8-15 10-25 5S15 18 20 8c3-3 7-4 10-3z' fill='%2322c55e' fill-opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
